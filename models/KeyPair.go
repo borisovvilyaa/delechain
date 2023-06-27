@@ -11,6 +11,8 @@ type KeyPair struct {
 	PublicKey  string
 }
 
+// generatePrivateKey generates a random private key.
+// @return string: The generated private key.
 func generatePrivateKey() string {
 	// Generate a random byte array
 	randomBytes := make([]byte, 32)
@@ -27,6 +29,9 @@ func generatePrivateKey() string {
 	return privateKey
 }
 
+// generatePublicKey generates a public key based on the provided private key.
+// @param privateKey: The private key used to generate the public key.
+// @return string: The generated public key.
 func generatePublicKey(privateKey string) string {
 	// Convert the private key from hex to bytes
 	privateKeyBytes, err := hex.DecodeString(privateKey)
@@ -42,6 +47,8 @@ func generatePublicKey(privateKey string) string {
 	return publicKey
 }
 
+// GetKeyPair generates a key pair consisting of a private key and a public key.
+// @return KeyPair: The generated key pair.
 func GetKeyPair() KeyPair {
 	// Generate private key
 	privateKey := generatePrivateKey()
